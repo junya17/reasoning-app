@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+NEXT_PUBLIC_API_URL=process.env.NEXT_PUBLIC_API_URL;
 
 console.log("Using API URL:", API_URL);  // ✅ API URL をログ出力
 
