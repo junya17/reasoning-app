@@ -6,6 +6,10 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 console.log("Using API URL:", API_URL);  // ✅ API URL をログ出力
 
+if (!API_URL) {
+  throw new Error("❌ API_URL が設定されていません！環境変数を確認してください。");
+}
+
 export default function ReasoningApp() {
   const [question, setQuestion] = useState("");
   const [steps, setSteps] = useState([]);
