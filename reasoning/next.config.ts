@@ -1,18 +1,11 @@
-import type { NextConfig } from "next";
+import { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: "standalone",
-  env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+  output: "export", // 静的サイトとしてエクスポート
+  reactStrictMode: true,
+  images: {
+    unoptimized: true, // 画像最適化を無効化（静的エクスポート用）
   },
 };
-
-module.exports = nextConfig;
 
 export default nextConfig;
-
-module.exports = {
-  env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
-  },
-};
