@@ -15,7 +15,11 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://reasoning-app-1.onrender.com"],  # フロントエンドのURL
+    allow_origins=[
+        "https://reasoning-app-1.onrender.com",
+        "https://reasoning-app.onrender.com",
+        "http://localhost:3000"  # 開発環境用
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
