@@ -12,13 +12,13 @@ openai.api_key = OPENAI_API_KEY
 
 app = FastAPI()
 
-# CORSミドルウェアを追加
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # すべてのオリジンを許可（開発用）
+    allow_origins=["https://reasoning-app-1.onrender.com"],  # フロントエンドのURL
     allow_credentials=True,
-    allow_methods=["*"],  # すべてのHTTPメソッドを許可
-    allow_headers=["*"],  # すべてのヘッダーを許可
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 class Query(BaseModel):

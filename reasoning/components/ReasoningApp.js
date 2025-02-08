@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/reasoning";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://reasoning-app.onrender.com/reasoning";
 
 console.log("Using API URL:", API_URL);  // ✅ API URL をログ出力
 
