@@ -24,13 +24,15 @@ export default function ReasoningApp() {
     console.log("Question:", question);  // ✅ 追加
 
     try {
-      console.log("Sending request to:", API_URL);
-
+      console.log("✅ Sending request to API:", API_URL);
+      console.log("🛠 Method:", "POST");  // ここを追加
+      console.log("🛠 Body:", JSON.stringify({ question }));  // ここも追加
       const response = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question }),
       });
+
 
       console.log("Response status:", response.status);
 
