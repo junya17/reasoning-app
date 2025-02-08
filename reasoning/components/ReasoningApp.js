@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://reasoning-app.onrender.com/reasoning";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/reasoning";
 
 console.log("Using API URL:", API_URL);  // ✅ API URL をログ出力
 
@@ -12,6 +12,7 @@ export default function ReasoningApp() {
   const [loading, setLoading] = useState(false);
 
   const handleAsk = async () => {
+    console.log("✅ API URL:", process.env.NEXT_PUBLIC_API_URL); // 🔥 ここでチェック！
     setLoading(true);
     setSteps([]);
 
