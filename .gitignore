@@ -1,0 +1,20 @@
+# Node.js (Next.js)
+frontend/node_modules/
+frontend/.next/
+frontend/.env.local
+frontend/.DS_Store
+
+# Python (FastAPI)
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/.env
+
+# OS関連の不要ファイル
+.DS_Store
+Thumbs.db
+
+# Python 仮想環境（venv）
+backend/myenv/
+
