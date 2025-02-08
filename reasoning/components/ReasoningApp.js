@@ -15,6 +15,9 @@ export default function ReasoningApp() {
     setLoading(true);
     setSteps([]);
 
+    console.log("🔄 Sending request to API..."); // ✅ 追加
+    console.log("Question:", question);  // ✅ 追加
+
     try {
       console.log("Sending request to:", API_URL);
 
