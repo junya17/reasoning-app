@@ -14,11 +14,15 @@ export default function ReasoningApp() {
   const [question, setQuestion] = useState("");
   const [steps, setSteps] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [finalAnswer, setFinalAnswer] = useState(null);
+  // 🔥 最終的な答えを追加
 
   const handleAsk = async () => {
+    console.log("🔄 Sending request to API..."); // ✅ 追加
     console.log("✅ API URL:", process.env.NEXT_PUBLIC_API_URL); // 🔥 ここでチェック！
     setLoading(true);
     setSteps([]);
+    setFinalAnswer(null);  // 🔥 新しい質問ごとにリセット
 
     console.log("🔄 Sending request to API..."); // ✅ 追加
     console.log("Question:", question);  // ✅ 追加
@@ -41,6 +45,7 @@ export default function ReasoningApp() {
         throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
       }
 
+      console.log("Response status:", response.status);
       const data = await response.json();
       console.log("FastAPI Response:", data);
 
@@ -49,10 +54,11 @@ export default function ReasoningApp() {
       }
 
       setSteps([data.answer]);  // 🔥 `answer` を `steps` にセット
-
+      setFinalAnswer(data.answer);  // 🔥 `finalAnswer` にもセット
     } catch (error) {
       console.error("Error fetching data:", error);
       setSteps([`エラーが発生しました: ${error.message}`]);
+      setFinalAnswer("エラーが発生しました。もう一度試してください。");
     }
 
     setLoading(false);
@@ -86,6 +92,12 @@ export default function ReasoningApp() {
               <li key={index} className="fade-in">{step}</li>
             ))}
           </ul>
+        </div>
+      )}
+      {finalAnswer && (
+        <div className="mt-4 border p-2 bg-yellow-100">
+          <h2 className="font-bold mb-2">💡 最終的な答え:</h2>
+          <p className="text-lg">{finalAnswer}</p>
         </div>
       )}
     </div>
